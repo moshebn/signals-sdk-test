@@ -1,0 +1,10 @@
+{
+  "timestamp": "2024-01-01T00:00:00.000Z",
+  "browser": "Safari/Placeholder",
+  "deprecatedAttributesCount": 3,
+  "deprecatedAttributes": [
+    { "key": "NAVIGATOR_BLUETOOTH_SUPPORTED", "value": false },
+    { "key": "NAVIGATOR_SERIAL_SUPPORTED", "value": false },
+    { "key": "NAVIGATOR_USB_SUPPORTED", "value": false }
+  ]
+}

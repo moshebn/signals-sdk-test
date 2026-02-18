@@ -1,0 +1,120 @@
+{
+  "deprecatedAttributes": [
+    {
+      "key": "AUDIO_INPUT_DEVICES",
+      "value": ""
+    },
+    {
+      "key": "AUDIO_OUTPUT_DEVICES",
+      "value": ""
+    },
+    {
+      "key": "AUTOFILL_FIELD_TYPES",
+      "value": ""
+    },
+    {
+      "key": "AUTOFILL_METHODS",
+      "value": ""
+    },
+    {
+      "key": "BATTERY_DISCHARGING_TIME",
+      "value": null
+    },
+    {
+      "key": "BROWSER_TYPE",
+      "value": ""
+    },
+    {
+      "key": "COOKIESENABLED",
+      "value": false
+    },
+    {
+      "key": "CPU_ARCHITECTURE",
+      "value": ""
+    },
+    {
+      "key": "DEDVCE_LIGHT_SUPPORTED",
+      "value": false
+    },
+    {
+      "key": "DEVICE_CATEGORY",
+      "value": ""
+    },
+    {
+      "key": "DOCUMENT_ELEMENT_DRIVER",
+      "value": ""
+    },
+    {
+      "key": "DOCUMENT_ELEMENT_SELENIUM",
+      "value": ""
+    },
+    {
+      "key": "DOCUMENT_ELEMENT_WEBDRIVER",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.chromium.domAutomation",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.chromium.domAutomationController",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.couchjs.emit",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.nodejs.Buffer",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.phantomjs.__phantomas",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.phantomjs._phantom",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.phantomjs.callPhantom",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.rhino.spawn",
+      "value": ""
+    },
+    {
+      "key": "HEADLESS.selenium",
+      "value": ""
+    },
+    {
+      "key": "PROXIMITY_SUPPORTED",
+      "value": false
+    },
+    {
+      "key": "REF_LINK",
+      "value": ""
+    },
+    {
+      "key": "VIDEO_INPUT_DEVICES",
+      "value": ""
+    },
+    {
+      "key": "onchange",
+      "value": null
+    },
+    {
+      "key": "video.av1",
+      "value": ""
+    },
+    {
+      "key": "video.h265",
+      "value": ""
+    },
+    {
+      "key": "video.ogg",
+      "value": ""
+    }
+  ]
+}
