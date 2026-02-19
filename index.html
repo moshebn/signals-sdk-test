@@ -199,10 +199,11 @@
         </header>
 
         <div class="controls">
+            <p>This tool loads the latest SDK from the PingOne CDN, initializes it, and generates a compatibility report.</p>
             <div>
-                <button id="runBtn">Generate Report</button>
+                <button id="runBtn" disabled>Generate Report</button>
                 <button id="exportBtn" style="display:none; margin-left: 10px; background-color: var(--gray);">Export Deprecated (JSON)</button>
-                <span id="status" style="margin-left: 16px;"></span>
+                <span id="status" style="margin-left: 16px;">Waiting for SDK...</span>
             </div>
             <div id="sdkInfo"></div>
         </div>
@@ -251,8 +252,8 @@
     <!-- Pako for decompression -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.11/pako.min.js"></script>
     
-    <!-- Instruction: Ensure signals-sdk.js is copied to the same folder as this index.html -->
-    <script src="signals-sdk.js" onerror="sdkLoadError()"></script>
+    <!-- Load the SDK from the hosted address -->
+    <script src="https://apps.pingone.com/signals/web-sdk/latest/signals-sdk.js" onload="sdkLoaded()" onerror="sdkLoadError()"></script>
 
     <script>
         const XOR_KEY = "Xq7tSbjB517mhZwt";
@@ -266,8 +267,13 @@
         const reportContainer = document.getElementById('reportContainer');
         const tableBody = document.getElementById('reportTableBody');
 
+        function sdkLoaded() {
+            statusSpan.innerHTML = '<span style="color: var(--success);">SDK Loaded Ready.</span>';
+            runBtn.disabled = false;
+        }
+
         function sdkLoadError() {
-            statusSpan.innerHTML = '<span style="color: var(--danger);">Error: <b>signals-sdk.js</b> not found. Please copy the built SDK to this folder.</span>';
+            statusSpan.innerHTML = '<span style="color: var(--danger);">Error: Failed to load the SDK from the CDN. Please check your internet connection or the URL.</span>';
             runBtn.disabled = true;
         }
 
