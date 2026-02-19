@@ -300,9 +300,11 @@
 
         function getExportData() {
             const deprecated = fullData.filter(d => d.status === 'empty');
+            const browserNameAttr = fullData.find(d => d.key === 'BROWSER_NAME');
             return {
                 timestamp: new Date().toISOString(),
                 browser: navigator.userAgent,
+                browserName: browserNameAttr ? browserNameAttr.value : 'unknown',
                 deprecatedAttributesCount: deprecated.length,
                 deprecatedAttributes: deprecated.map(d => ({ key: d.key, value: d.value }))
             };
