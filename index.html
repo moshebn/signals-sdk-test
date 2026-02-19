@@ -252,6 +252,21 @@
     <!-- Pako for decompression -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.11/pako.min.js"></script>
     
+    <script>
+        // Define load handlers before the script tag that calls them
+        function sdkLoaded() {
+            const statusSpan = document.getElementById('status');
+            const runBtn = document.getElementById('runBtn');
+            if (statusSpan) statusSpan.innerHTML = '<span style="color: var(--success);">SDK Loaded Ready.</span>';
+            if (runBtn) runBtn.disabled = false;
+        }
+
+        function sdkLoadError() {
+            const statusSpan = document.getElementById('status');
+            if (statusSpan) statusSpan.innerHTML = '<span style="color: var(--danger);">Error: Failed to load the SDK from the CDN. Please check your internet connection or the URL.</span>';
+        }
+    </script>
+
     <!-- Load the SDK from the hosted address -->
     <script src="https://apps.pingone.com/signals/web-sdk/latest/signals-sdk.js" onload="sdkLoaded()" onerror="sdkLoadError()"></script>
 
@@ -266,16 +281,6 @@
         const summaryDiv = document.getElementById('summary');
         const reportContainer = document.getElementById('reportContainer');
         const tableBody = document.getElementById('reportTableBody');
-
-        function sdkLoaded() {
-            statusSpan.innerHTML = '<span style="color: var(--success);">SDK Loaded Ready.</span>';
-            runBtn.disabled = false;
-        }
-
-        function sdkLoadError() {
-            statusSpan.innerHTML = '<span style="color: var(--danger);">Error: Failed to load the SDK from the CDN. Please check your internet connection or the URL.</span>';
-            runBtn.disabled = true;
-        }
 
         function detectBrowser() {
             const ua = navigator.userAgent.toLowerCase();
