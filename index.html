@@ -311,7 +311,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `${browser}_export_${new Date().getTime()}.json`;
+            a.download = `${browser}_export.json`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
