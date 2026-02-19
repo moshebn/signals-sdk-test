@@ -245,6 +245,7 @@
                 <tbody id="reportTableBody"></tbody>
             </table>
         </div>
+        <div id="exportedDeprecationJSON" style="display:none;"></div>
     </div>
 
     <!-- Pako for decompression -->
@@ -297,21 +298,25 @@
             }
         }
 
-        exportBtn.addEventListener('click', () => {
-            const browser = detectBrowser();
+        function getExportData() {
             const deprecated = fullData.filter(d => d.status === 'empty');
-            const exportData = {
+            return {
                 timestamp: new Date().toISOString(),
                 browser: navigator.userAgent,
                 deprecatedAttributesCount: deprecated.length,
                 deprecatedAttributes: deprecated.map(d => ({ key: d.key, value: d.value }))
             };
+        }
+
+        exportBtn.addEventListener('click', () => {
+            const browser = detectBrowser();
+            const exportData = getExportData();
 
             const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `${browser}_export.json`;
+            a.download = `${browser}_export_${new Date().getTime()}.json`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -323,6 +328,7 @@
                 statusSpan.textContent = 'Detecting Browser & Exclusions...';
                 runBtn.disabled = true;
                 exportBtn.style.display = 'none';
+                document.getElementById('exportedDeprecationJSON').textContent = '';
                 
                 await fetchExclusions();
 
@@ -429,6 +435,9 @@
 
             updateStats();
             renderTable('all');
+
+            // Populate hidden div
+            document.getElementById('exportedDeprecationJSON').textContent = JSON.stringify(getExportData(), null, 2);
         }
 
         function updateStats() {
